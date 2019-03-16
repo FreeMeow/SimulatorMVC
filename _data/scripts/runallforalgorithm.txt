@@ -1,0 +1,10 @@
+changeconst -n B -v 1
+loadworld -f ./_data/worlds/example_v-5.world
+runalgo -a only_starved_in_cluster -a:maxd 200 -a:minp 2 -t 600
+infoscenerio
+loadworld -f ./_data/worlds/example_v-10.world
+runalgo -a only_starved_in_cluster -a:maxd 120 -a:minp 2 -t 700
+infoscenerio
+loadworld -f ./_data/worlds/example_v-15.world
+runalgo -a only_starved_in_cluster -a:maxd 120 -a:minp 2 -t 800
+infoscenerio

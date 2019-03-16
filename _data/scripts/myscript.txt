@@ -1,0 +1,5 @@
+loadworld -f ./_data/worlds/example_v-15.world
+runalgo -a all_in_cluster -a:maxd 120 -a:minp 2 -t 600
+infoscenerio
+showscenerio
+exit

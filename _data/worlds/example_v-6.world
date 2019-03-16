@@ -1,0 +1,67 @@
+{
+  "name": "example with 5 Vertexes",
+  "width": 600,
+  "height": 600,
+  "robot": {
+    "walk_speed": 20,
+    "start_point": 0
+  },
+  "obstacles": [
+    [[150, 0], [150, 250]],
+    [[450, 0], [450, 450]],
+    [[150, 300], [150, 600]],
+    [[0, 450], [100, 450]]
+  ],
+  "visit_points": [
+    {
+      "position": [50, 50],
+      "starvation": 400,
+      "probability": 0.1
+    },
+    {
+      "position": [50, 150],
+      "starvation": 400,
+      "probability": 0.1
+    },
+    {
+      "position": [180, 50],
+      "starvation": 200,
+      "probability": 0.05
+    },
+    {
+      "position": [400, 50],
+      "starvation": 200,
+      "probability": 0.05
+    },
+    {
+      "position": [500, 50],
+      "starvation": 600,
+      "probability": 0.2
+    },
+    {
+      "position": [480, 100],
+      "starvation": 600,
+      "probability": 0.2
+    },
+    {
+      "position": [50, 500],
+      "starvation": 600,
+      "probability": 0.12
+    },
+    {
+      "position": [50, 420],
+      "starvation": 600,
+      "probability": 0.13
+    },
+    {
+      "position": [500, 500],
+      "starvation": 500,
+      "probability": 0.02
+    },
+    {
+      "position": [400, 500],
+      "starvation": 500,
+      "probability": 0.03
+    }
+  ]
+}

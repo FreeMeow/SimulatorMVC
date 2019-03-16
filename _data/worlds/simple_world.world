@@ -1,0 +1,54 @@
+{
+    "name": "The simple world",
+    "width": 600,
+    "height": 600,
+    "robot": {
+        "walk_speed": 20,
+        "start_point": 0
+    },
+    "obstacles": [
+        [
+            [150,0],
+            [150,250]
+        ],
+        [
+            [450,0],
+            [450,450]
+        ],
+        [
+            [150,300],
+            [150,600]
+        ],
+        [
+            [0,450],
+            [100,450]
+        ]
+    ],
+    "visit_points": [
+        {
+            "position": [50,50],
+            "starvation": 200,
+            "probability": 0.2
+        },
+        {
+            "position": [180,50],
+            "starvation": 100,
+            "probability": 0.1
+        },
+        {
+            "position": [500,50],
+            "starvation": 300,
+            "probability": 0.4
+        },
+        {
+            "position": [50,500],
+            "starvation": 600,
+            "probability": 0.25
+        },
+        {
+            "position": [500,500],
+            "starvation": 300,
+            "probability": 0.05
+        }
+    ]
+}
