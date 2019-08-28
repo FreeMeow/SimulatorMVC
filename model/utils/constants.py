@@ -1,3 +1,5 @@
 CONSTANTS = {
-  'B': 1 # Beta Factor (Check 'Beta Factor' in documentation for more details)
+    # Beta Factor (Check 'Beta Factor' in documentation for more details)
+    'B': 1,
+    'G': 4  # Distance Factor for gravitational search algorithm
 }

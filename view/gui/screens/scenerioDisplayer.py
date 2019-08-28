@@ -9,10 +9,10 @@ from view.gui.classes.monitor import Monitor
 
 class ScenerioDisplayer:
 
-    def __init__(self,scenerio,width=600,height=600):
+    def __init__(self, scenerio, width=600, height=600):
         root = Tk()
         monitor = Monitor(root, width, height)
-        control_panel = ControlPanel(root, len(scenerio['frames']),width)
+        control_panel = ControlPanel(root, len(scenerio['frames']), width)
         engine = GuiEngine(control_panel, monitor, scenerio)
         control_panel.setEngine(engine)
         monitor.setEngine(engine)

@@ -1,0 +1,3 @@
+loadworld -f ./_data/worlds/example_v-10.world
+runalgo -a random_starved -t 2000
+showscenerio

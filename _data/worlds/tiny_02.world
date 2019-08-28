@@ -1,0 +1,24 @@
+{
+  "name": "Tiny world for debugging",
+  "width": 600,
+  "height": 600,
+  "robot": {
+    "walk_speed": 10,
+    "start_point": 0
+  },
+  "obstacles": [
+    [[300, 0], [300, 450]]
+  ],
+  "visit_points": [
+    {
+      "position": [150,150],
+      "starvation": 2,
+      "probability": 0.5
+    },
+    {
+      "position": [450, 150],
+      "starvation": 2,
+      "probability": 0.5
+    }
+  ]
+}
