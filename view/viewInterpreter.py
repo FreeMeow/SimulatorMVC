@@ -18,6 +18,7 @@ class ViewInterpreter:
         'showscenerio': self.show_scenerio,
         'infoscenerio': self.print_scenerio_info,
         'changeconst': self.change_constant,
+        'statsscript': self.stats_script
     }
     if script_file:
       self.load_scripts_from_file(script_file)
@@ -158,6 +159,15 @@ class ViewInterpreter:
       print("#" + tl.ljust(size) + "#")
     print("#" + size*"#" + "#")
 
+  def fprint_scenerio_info(self,args):
+    details = self.controller.get_scenerio_info()
+    text_lines = [" {}: {} ".format(k,v) for k,v in details.items()]
+    size = max([len(tl) for tl in text_lines])
+    print("#" + size*"#" + "#")
+    for tl in text_lines:
+      print("#" + tl.ljust(size) + "#")
+    print("#" + size*"#" + "#")
+
   def change_constant(self,args):
     const_name = args['n']['default']
     new_value = args['v']['default']
@@ -168,4 +178,23 @@ class ViewInterpreter:
       print(error_msg)
     
     print(CONSTANTS)
+
+  def stats_script(self, args):
+    
+    algs_file = open(".\_data\scripts\scriptagls.txt","r")
+    worlds_file = open(".\_data\scripts\scriptworlds.txt","r")
+    
+    worlds=worlds_file.readlines()
+    algs = algs_file.readlines()
+    for world in worlds:
+      if world[-1]=='\n':
+        world=world[:-1]
+      self.handle_input("loadworld "+world)
+      for alg in algs:
+        if alg[-1]=='\n':
+          alg=alg[:-1]
+        self.handle_input("runalgo "+alg)
+        self.handle_input("infoscenerio")
+        
+
 

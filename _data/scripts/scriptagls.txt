@@ -1,0 +1,2 @@
+-a all_in_cluster -a:maxd 120 -a:minp 2 -t 600
+-a greedy_priority -t 900
