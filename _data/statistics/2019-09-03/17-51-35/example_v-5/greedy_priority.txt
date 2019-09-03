@@ -1,0 +1,9 @@
+ -t 900
+#############################
+# total_price: 171.6        #
+# alg_name: greedy_priority #
+# tpd: 900                  #
+# num_of_vertexes: 5        #
+# runtime: 105 ms           #
+#############################
+
