@@ -1,6 +1,9 @@
 import string
 import subprocess as sp
 import re
+import datetime
+import os
+from pathlib import Path
 from controller.controller import Controller
 from view.gui.screens.scenerioDisplayer import ScenerioDisplayer as ScenerioDisplayer
 
@@ -159,14 +162,6 @@ class ViewInterpreter:
       print("#" + tl.ljust(size) + "#")
     print("#" + size*"#" + "#")
 
-  def fprint_scenerio_info(self,args):
-    details = self.controller.get_scenerio_info()
-    text_lines = [" {}: {} ".format(k,v) for k,v in details.items()]
-    size = max([len(tl) for tl in text_lines])
-    print("#" + size*"#" + "#")
-    for tl in text_lines:
-      print("#" + tl.ljust(size) + "#")
-    print("#" + size*"#" + "#")
 
   def change_constant(self,args):
     const_name = args['n']['default']
@@ -180,12 +175,13 @@ class ViewInterpreter:
     print(CONSTANTS)
 
   def stats_script(self, args):
+    with open(".\_data\scripts\scriptagls.txt","r") as alg_script:
+      algs=alg_script.readlines()
+    with open(".\_data\scripts\scriptworlds.txt","r") as world_script:
+      worlds=world_script.readlines()
     
-    algs_file = open(".\_data\scripts\scriptagls.txt","r")
-    worlds_file = open(".\_data\scripts\scriptworlds.txt","r")
-    
-    worlds=worlds_file.readlines()
-    algs = algs_file.readlines()
+    timedir = self.create_time_dir()
+
     for world in worlds:
       if world[-1]=='\n':
         world=world[:-1]
@@ -194,7 +190,39 @@ class ViewInterpreter:
         if alg[-1]=='\n':
           alg=alg[:-1]
         self.handle_input("runalgo "+alg)
-        self.handle_input("infoscenerio")
-        
+        self.fprint_scenerio_info(timedir,world,alg)
+  
+  def create_time_dir(self):
+    
+    dirpath = os.path.join(".\_data\statistics",str(datetime.datetime.now().date()))
+    if not os.path.exists(dirpath):
+      os.makedirs(dirpath)
+    time = datetime.datetime.now().time()
+    dirpath=os.path.join(dirpath,str("-".join((str(time.hour),str(time.minute),str(time.second)))))
+    if not os.path.exists(dirpath):
+      os.makedirs(dirpath)
+    return dirpath
+      
+  def fprint_scenerio_info(self,path,world,alg):
+    m = re.search("\/[^\/]+\.world$",world)
+    if m:
+      worlddir=m.group(0)[1:-6]
+    worldpath=os.path.join(path,worlddir)
+    if not os.path.exists(worldpath):
+      os.makedirs(worldpath)
+    m=re.search("^-a [^ ]+",alg)
+    if m:
+      algfile=m.group(0)[3:]+".txt"
+    path=os.path.join(worldpath,algfile)
 
+    with open(path,"a") as f:
+      details = self.controller.get_scenerio_info()
+      text_lines = [" {}: {} ".format(k,v) for k,v in details.items()]
+      size = max([len(tl) for tl in text_lines])
+
+      f.write(alg[len(algfile)-1:]+'\n')
+      f.write("#" + size*"#" + "#"+'\n')
+      for tl in text_lines:
+        f.write("#" + tl.ljust(size) + "#"+'\n')
+      f.write("#" + size*"#" + "#"+'\n\n')
 
