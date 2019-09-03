@@ -6,3 +6,11 @@
 # num_of_vertexes: 5       #
 ############################
 
+ -a:maxd 90 -a:minp 3 -t 400
+############################
+# total_price: 64.1        #
+# alg_name: all_in_cluster #
+# tpd: 400                 #
+# num_of_vertexes: 5       #
+############################
+

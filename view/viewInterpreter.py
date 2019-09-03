@@ -182,15 +182,21 @@ class ViewInterpreter:
     
     timedir = self.create_time_dir()
 
+    alg_times = [0]*len(algs)
     for world in worlds:
       if world[-1]=='\n':
         world=world[:-1]
       self.handle_input("loadworld "+world)
-      for alg in algs:
+      for i,alg in enumerate(algs):
         if alg[-1]=='\n':
           alg=alg[:-1]
         self.handle_input("runalgo "+alg)
-        self.fprint_scenerio_info(timedir,world,alg)
+        alg_times[i]+=self.fprint_scenerio_info(timedir,world,alg)
+    with open(os.path.join(timedir,"overall stats.txt"),"a") as f:
+      for i,alg in enumerate(algs):
+        if alg[-1]=='\n':
+          alg=alg[:-1]
+        f.write(alg+"\n\toverall time: "+str(alg_times[i])+"\n")
   
   def create_time_dir(self):
     
@@ -215,14 +221,16 @@ class ViewInterpreter:
       algfile=m.group(0)[3:]+".txt"
     path=os.path.join(worldpath,algfile)
 
+
     with open(path,"a") as f:
       details = self.controller.get_scenerio_info()
       text_lines = [" {}: {} ".format(k,v) for k,v in details.items()]
       size = max([len(tl) for tl in text_lines])
-
       f.write(alg[len(algfile)-1:]+'\n')
       f.write("#" + size*"#" + "#"+'\n')
       for tl in text_lines:
         f.write("#" + tl.ljust(size) + "#"+'\n')
       f.write("#" + size*"#" + "#"+'\n\n')
+      return details['total_price']
+    
 

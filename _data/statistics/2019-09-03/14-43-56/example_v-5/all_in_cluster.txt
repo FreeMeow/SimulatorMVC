@@ -1,8 +1,0 @@
- -a:maxd 120 -a:minp 2 -t 600
-############################
-# total_price: 88.3        #
-# alg_name: all_in_cluster #
-# tpd: 600                 #
-# num_of_vertexes: 5       #
-############################
-
