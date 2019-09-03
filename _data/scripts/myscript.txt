@@ -1,6 +1,9 @@
+
 generateworld -path ./_data/generated_worlds -name generated_1 -vn 20 -wn 10 -cn 7 -cf 0.8 -max_st 500 -min_st 200
 loadworld -f ./_data/worlds/tiny_02.world
 runalgo -a k_step -a:k 3 -t 1000
+loadworld -f ./_data/worlds/example_v-15.world
+runalgo -a all_in_cluster -a:maxd 120 -a:minp 2 -t 1800
 infoscenerio
 showscenerio
 exit

@@ -1,0 +1,5 @@
+-a all_in_cluster -a:maxd 120 -a:minp 2 -t 600
+	overall time: 109.06
+-a all_in_cluster -a:maxd 90 -a:minp 3 -t 400
+	overall time: 71.89
+-a greedy_priority -t 900	overall time: 397.63
