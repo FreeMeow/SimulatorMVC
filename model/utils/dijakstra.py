@@ -82,6 +82,8 @@ def is_valid_path(world, p_robot, p_dest):
     for obstacle in world['obstacles']:
         if (p_dest not in obstacle) and (p_robot not in obstacle) and (is_lines_crossing(p_robot, p_dest, obstacle[0], obstacle[1])):
             return False
+        if (p_dest.x == obstacle[0].x == obstacle[1].x and obstacle[0].y < p_dest.y < obstacle[1].y) or (p_dest.y == obstacle[0].y == obstacle[1].y and obstacle[0].x < p_dest.x < obstacle[1].x):
+            return False
     return True
 
 

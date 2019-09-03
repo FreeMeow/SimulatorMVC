@@ -118,7 +118,7 @@ class Gravitational_search:
         # cost = global_utils.price(vertex.cst(
         #     self.current_time+distance), vertex.p)
         cost = global_utils.price(vertex.cst(
-            self.current_time), vertex.p)
+            self.current_time + distance), vertex.p)
         # TODO: replace with constant
         return factor*cost*((1/distance)**CONSTANTS['G'])
         # path_list = []

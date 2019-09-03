@@ -20,6 +20,7 @@ class ViewInterpreter:
             'showscenerio': self.show_scenerio,
             'infoscenerio': self.print_scenerio_info,
             'changeconst': self.change_constant,
+            'generateworld': self.generate_world,
         }
         if script_file:
             self.load_scripts_from_file(script_file)
@@ -147,13 +148,12 @@ class ViewInterpreter:
             print(error_msg)
 
     def generate_world(self, args):
-        world_parameters = args
-        success, error_msg = self.controller.generate_world(world_parameters)
-        if success:
-            print(
-                args['name']['default'] + "generated successfully")
-        else:
-            print(error_msg)
+        success, error_msg = self.controller.generate_world(args)
+        # if success:
+        #     print(
+        #         args['path']['default'] + "generated successfully")
+        # else:
+        #     print(error_msg)
 
     def show_scenerio(self, args):
         response = self.controller.get_scenerio_for_gui()

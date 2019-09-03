@@ -21,7 +21,7 @@ class Controller:
 
     def generate_world(self, args):
         self.check_for_model()
-        self.model.generate_world(args)
+        return self.model.generate_world(args)
 
     def run_algorithm_on_world(self, algo, algo_args, tpd):
         self.check_for_model()

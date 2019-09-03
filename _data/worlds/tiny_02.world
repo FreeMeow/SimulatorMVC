@@ -12,12 +12,12 @@
   "visit_points": [
     {
       "position": [150,150],
-      "starvation": 2,
+      "starvation": 300,
       "probability": 0.5
     },
     {
       "position": [450, 150],
-      "starvation": 2,
+      "starvation": 300,
       "probability": 0.5
     }
   ]
