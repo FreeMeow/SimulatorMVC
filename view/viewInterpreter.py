@@ -3,6 +3,8 @@ import subprocess as sp
 import re
 import datetime
 import os
+import csv
+import numpy
 from pathlib import Path
 from controller.controller import Controller
 from view.gui.screens.scenerioDisplayer import ScenerioDisplayer as ScenerioDisplayer
@@ -11,7 +13,7 @@ from model.utils.constants import CONSTANTS
 
 
 class ViewInterpreter:
-        
+
     def __init__(self, controller):
         self.controller = controller
 
@@ -25,7 +27,8 @@ class ViewInterpreter:
             'infoscenerio': self.print_scenerio_info,
             'changeconst': self.change_constant,
             'generateworld': self.generate_world,
-            'statsscript': self.stats_script
+            'statsscript': self.stats_script,
+            'statscsv': self.stats_csv
         }
         if script_file:
             self.load_scripts_from_file(script_file)
@@ -154,11 +157,11 @@ class ViewInterpreter:
 
     def generate_world(self, args):
         success, error_msg = self.controller.generate_world(args)
-        # if success:
-        #     print(
-        #         args['path']['default'] + "generated successfully")
-        # else:
-        #     print(error_msg)
+        if success:
+            print(
+                args['name']['default'] + " generated successfully")
+        else:
+            print(error_msg)
 
     def show_scenerio(self, args):
         response = self.controller.get_scenerio_for_gui()
@@ -190,57 +193,57 @@ class ViewInterpreter:
             print(error_msg)
 
         print(CONSTANTS)
-            
+
     def stats_script(self, args):
-        with open(".\_data\scripts\scriptagls.txt","r") as alg_script:
-            algs=alg_script.readlines()
-        with open(".\_data\scripts\scriptworlds.txt","r") as world_script:
-            worlds=world_script.readlines()
-        
+        with open(".\_data\scripts\scriptagls.txt", "r") as alg_script:
+            algs = alg_script.readlines()
+        with open(".\_data\scripts\scriptworlds.txt", "r") as world_script:
+            worlds = world_script.readlines()
+
         timedir = self.create_time_dir()
 
         alg_times = [0]*len(algs)
         for world in worlds:
-            if world[-1]=='\n':
-                world=world[:-1]
+            if world[-1] == '\n':
+                world = world[:-1]
             self.handle_input("loadworld "+world)
-            for i,alg in enumerate(algs):
-                    if alg[-1]=='\n':
-                        alg=alg[:-1]
-                    self.handle_input("runalgo "+alg)
-                    alg_times[i]+=self.fprint_scenerio_info(timedir,world,alg)
-        with open(os.path.join(timedir,"overall stats.txt"),"a") as f:
-            for i,alg in enumerate(algs):
-                if alg[-1]=='\n':
-                    alg=alg[:-1]
-                f.write(alg+"\n\toverall time: "+str(alg_times[i])+"\n")
+            for i, alg in enumerate(algs):
+                if alg[-1] == '\n':
+                    alg = alg[:-1]
+                self.handle_input("runalgo "+alg)
+                alg_times[i] += self.fprint_scenerio_info(timedir, world, alg)
+        with open(os.path.join(timedir, "overall stats.txt"), "a") as f:
+            for i, alg in enumerate(algs):
+                if alg[-1] == '\n':
+                    alg = alg[:-1]
+                f.write(alg+"\n\toverall score: "+str(alg_times[i])+"\n")
 
     def create_time_dir(self):
-        
-        dirpath = os.path.join(".\_data\statistics",str(datetime.datetime.now().date()))
+
+        dirpath = os.path.join(".\_data\statistics", str(datetime.datetime.now().date()))
         if not os.path.exists(dirpath):
             os.makedirs(dirpath)
         time = datetime.datetime.now().time()
-        dirpath=os.path.join(dirpath,str("-".join((str(time.hour),str(time.minute),str(time.second)))))
+        dirpath = os.path.join(dirpath, str("-".join((str(time.hour), str(time.minute), str(time.second)))))
         if not os.path.exists(dirpath):
             os.makedirs(dirpath)
         return dirpath
-        
-    def fprint_scenerio_info(self,path,world,alg):
-        m = re.search("\/[^\/]+\.world$",world)
+
+    def fprint_scenerio_info(self, path, world, alg):
+        m = re.search("\/[^\/]+\.world$", world)
         if m:
-            worlddir=m.group(0)[1:-6]
-        worldpath=os.path.join(path,worlddir)
+            worlddir = m.group(0)[1:-6]
+        worldpath = os.path.join(path, worlddir)
         if not os.path.exists(worldpath):
             os.makedirs(worldpath)
-        m=re.search("^-a [^ ]+",alg)
+        m = re.search("^-a [^ ]+", alg)
         if m:
-            algfile=m.group(0)[3:]+".txt"
-        path=os.path.join(worldpath,algfile)
+            algfile = m.group(0)[3:]+".txt"
+        path = os.path.join(worldpath, algfile)
 
-        with open(path,"a") as f:
+        with open(path, "a") as f:
             details = self.controller.get_scenerio_info()
-            text_lines = [" {}: {} ".format(k,v) for k,v in details.items()]
+            text_lines = [" {}: {} ".format(k, v) for k, v in details.items()]
             size = max([len(tl) for tl in text_lines])
             f.write(alg[len(algfile)-1:]+'\n')
             f.write("#" + size*"#" + "#"+'\n')
@@ -248,4 +251,44 @@ class ViewInterpreter:
                 f.write("#" + tl.ljust(size) + "#"+'\n')
             f.write("#" + size*"#" + "#"+'\n\n')
         return details['total_price']
-        
+
+    def stats_csv(self, args):
+        with open(".\_data\scripts\scriptagls.txt", "r") as alg_script:
+            algs = alg_script.readlines()
+        with open(".\_data\scripts\scriptworlds.txt", "r") as world_script:
+            worlds = world_script.readlines()
+
+        timedir = self.create_time_dir()
+        dataset = [[0 for _ in range(len(worlds))] for _ in range(len(algs))]
+
+        for j, world in enumerate(worlds):
+            if world[-1] == '\n':
+                world = world[:-1]
+            self.handle_input("loadworld "+world)
+            for i, alg in enumerate(algs):
+                if alg[-1] == '\n':
+                    algs[i] = alg[:-1]
+                self.handle_input("runalgo "+algs[i])
+                dataset[i][j] = self.controller.get_scenerio_info()['total_price']
+        with open(os.path.join(timedir, "dataset.csv"), "a", newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            world_names = []
+            world_names.append(args['name']['default'] if 'name' in args else 'dataset')
+            alg_names = []
+            for alg in algs:
+                alg_names.append(alg[3:])
+            for world in worlds:
+                m = re.search("\/[^\/]+\.world$", world)
+                if m:
+                    world_names.append(m.group(0)[1:-6])
+            world_names.insert(1, "Sum")
+            if 'avg' in args:
+                world_names.insert(1, "Average")
+            writer.writerow(world_names)
+            for i, row in enumerate(dataset):
+                size = len(row)
+                row.insert(0, sum(row[len(row)-size:]))
+                if 'avg' in args:
+                    row.insert(0, (numpy.average(row[len(row)-size:])))
+                row.insert(0, alg_names[i])
+                writer.writerow(row)

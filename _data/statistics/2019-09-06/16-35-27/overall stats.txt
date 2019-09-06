@@ -1,0 +1,14 @@
+-a k_step_v2 -a:k 3 -t 3000
+	overall score: 15505.988595605118
+-a k_step_v2 -a:k 4 -t 3000
+	overall score: 16508.51618619808
+-a gravitational_search -t 3000
+	overall score: 17488.664916588114
+-a greedy_priority -t 3000
+	overall score: 33614.47657601537
+-a all_in_cluster -a:maxd 120 -a:minp 2 -t 3000
+	overall score: 20230.21394530732
+-a only_starved_in_cluster -a:maxd 120 -a:minp 2 -t 3000
+	overall score: 21420.693951961355
+-a random_starved -a:maxd 120 -a:minp 2 -t 3000
+	overall score: 40553.88781951494

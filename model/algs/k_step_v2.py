@@ -4,12 +4,13 @@ from model.utils.algo_utils import BaseConverter
 
 
 class State:
-    def __init__(self, time_stamp, state_vertex_ind, vertexes, distance_matrix):
+    def __init__(self, time_stamp, state_vertex_ind, vertexes, distance_matrix, parent):
         self.vertexes = vertexes
         self.distance_matrix = distance_matrix
         self.time_stamp = time_stamp
         self.state_vertex_ind = state_vertex_ind
         self.children = []
+        self.parent = parent
 
     def copy_vertex(self, vertex):
         new_vertex = Vertex(vertex.p, vertex.st, vertex.point)
@@ -19,17 +20,20 @@ class State:
 
     def branch(self):
         for i, v in enumerate(self.vertexes):
+            if i == self.state_vertex_ind:
+                continue
             self.price = 0
             c_time_stamp = self.time_stamp + \
                 self.distance_matrix[self.state_vertex_ind][i]
             c_vertexes = []
-            for j, w in enumerate(self.vertexes):
+            for _, w in enumerate(self.vertexes):
                 c_vertexes.append(self.copy_vertex(w))
+
             c_state_vertex_ind = i
             c_vertexes[c_state_vertex_ind].visit(c_time_stamp)
             # calculate price of state by end result
             child = State(c_time_stamp, c_state_vertex_ind,
-                          c_vertexes, self.distance_matrix)
+                          c_vertexes, self.distance_matrix, self)
             # total world price divided by time passed
             # child.price = sum([global_utils.price(c.cst(c_time_stamp), c.p) for c in child.vertexes])*(c_time_stamp-self.time_stamp) + self.price
             child.price = sum([global_utils.price(v.cst(c_time_stamp), v.p) for v in child.vertexes])
@@ -40,7 +44,7 @@ class State:
         return self.children
 
 
-class K_step:
+class K_step_v2:
 
     def __init__(self, world, distance_matrix, alg_args):
         self.world = world
@@ -50,63 +54,37 @@ class K_step:
     def start(self):
         # debug
         self.steps_left = []
-        self.is_first = True
         # 1.generate first k-1 steps
         self.current_states = []
-        self.string_base = ""
 
     def next_step(self, current_vertex_ind, vertexes, current_time):
         # 1. generate k layer of tree from k-1 layer
         print("time: ", current_time)
-        if self.is_first:
-            self.is_first = False
-            root = State(0, current_vertex_ind,
-                         vertexes, self.distance_matrix)
+        if not self.steps_left:
+            root = State(current_time, current_vertex_ind,
+                         vertexes, self.distance_matrix, None)
             root.price = 0
             self.current_layer = []
             self.current_layer.append(root)
-            for i in range(0, self.k-1):
+            for i in range(0, self.k):
                 new_layer = []
                 for c in self.current_layer:
                     new_layer += c.branch()
                 self.current_layer = new_layer
-            # make base converter
-            for i in range(0, len(vertexes)):
-                if i < 10:
-                    self.string_base += str(i)
-                else:
-                    self.string_base += chr(ord('a')+i-10)
-            self.base_n = BaseConverter(self.string_base)
 
-        # 2. find state with minimum cost
-        next_layer = []
-        for i, x in enumerate(self.current_layer):
-            next_layer += x.branch()
-        # print('size of next layer:', len(next_layer))
-        min_price = 10000000
-        min_index = -1
-        self.current_layer = next_layer
-        group_size = len(vertexes)**(self.k-1)
+            min_price = 10000000000000000000
+            min_index = 0
+            for i, state in enumerate(self.current_layer):
+                if state.price < min_price:
+                    min_price = state.price
+                    min_index = i
+            state = self.current_layer[min_index]
+            while state.parent:
+                self.steps_left.insert(0, state.state_vertex_ind)
+                state = state.parent
 
-        for i, state in enumerate(next_layer):
-            if state.price < min_price and current_vertex_ind != int(i/group_size):
-                min_price = state.price
-                min_index = i
-
-        #   if steps are not empty, pop the next step
-        if min_index == -1:
-            selected = current_vertex_ind
-        # *(index of state indicates first child in route)
-        selected = int(min_index/group_size)
-        # reduce layer to paths with selected state as parent
-        self.current_layer = self.current_layer[selected *
-                                                group_size:(selected+1)*group_size]
-        # print('sublist chosen:[', selected * group_size,
-        #   ':', (selected+1)*group_size, ']')
-
-        # print("going to selected ", selected)
-
-        return selected
+        print("all steps: ", self.steps_left)
+        return self.steps_left.pop(0)
 
     def output(self):
         return {}

@@ -1,0 +1,9 @@
+ -a:maxd 120 -a:minp 2 -t 3000
+##################################
+# total_price: 9640.780799254633 #
+# alg_name: random_starved       #
+# tpd: 3000                      #
+# num_of_vertexes: 10            #
+# runtime: 284 ms                #
+##################################
+

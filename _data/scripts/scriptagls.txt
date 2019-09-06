@@ -1,3 +1,3 @@
--a all_in_cluster -a:maxd 120 -a:minp 2 -t 600
--a all_in_cluster -a:maxd 90 -a:minp 3 -t 400
--a greedy_priority -t 900
+-a k_step_v2 -a:k 3 -t 1000
+-a gravitational_search -t 1000
+-a greedy_priority -t 1000

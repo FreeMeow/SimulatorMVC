@@ -10,9 +10,8 @@ class World_generator():
 
     def generate_world(self, args):
         # prepare world parameters
-        path = args['path']['default'] if 'path' in args else './_data/generated_worlds'
+        path = args['path']['default'] if 'path' in args else '.\_data\generated_worlds'
         if not 'name' in args:
-            print('no name')
             return [False, "world name required (add -name ______ to generateworld command"]
         name = args['name']['default']
         vertex_count = int(args['vn']['default']) if 'vn' in args else random.randint(5, 15)
@@ -100,11 +99,6 @@ class World_generator():
 
             self.visit_points.append(self.create_visit_point(vx, vy, min_st, max_st, probability))
             world_matrix[vy][vx] = 2
-
-        for j in range(row_length):
-            for i in range(column_length):
-                print(world_matrix[j][i], end='')
-            print("")
 
         # check parameters at hte beginning
         if not exists(path):
@@ -198,7 +192,6 @@ class World_generator():
         wall_distribution_factor = wy / (height-1) if horizontal else wx / (width-1)
         wall_count1 = int(wall_distribution_factor*wall_num)
         wall_count2 = wall_num - wall_count1
-        print(wall_count1, wall_count2)
         rooms = []
         rooms += self.divide(world_matrix, nx, ny, w, h, self.choose_orientation(w, h), wall_count1)
 
