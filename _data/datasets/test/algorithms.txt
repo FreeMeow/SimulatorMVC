@@ -1,0 +1,5 @@
+-a k_step_v2 -a:k 3 -t 1500
+-a k_step_v2 -a:k 2 -t 1500
+-a k_step_v2 -a:k 3 -t 1500
+-a gravitational_search -t 1500
+-a greedy_priority -t 1500

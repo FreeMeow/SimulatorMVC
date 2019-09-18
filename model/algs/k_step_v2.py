@@ -59,7 +59,6 @@ class K_step_v2:
 
     def next_step(self, current_vertex_ind, vertexes, current_time):
         # 1. generate k layer of tree from k-1 layer
-        print("time: ", current_time)
         if not self.steps_left:
             root = State(current_time, current_vertex_ind,
                          vertexes, self.distance_matrix, None)
@@ -74,6 +73,12 @@ class K_step_v2:
 
             min_price = 10000000000000000000
             min_index = 0
+            # TODO: check how dividing by length of path affects the algorithm
+            # for i, state in enumerate(self.current_layer):
+            #     price = state.price/(state.time_stamp - current_time)
+            #     if price < min_price:
+            #         min_price = price
+            #         min_index = i
             for i, state in enumerate(self.current_layer):
                 if state.price < min_price:
                     min_price = state.price
@@ -83,7 +88,6 @@ class K_step_v2:
                 self.steps_left.insert(0, state.state_vertex_ind)
                 state = state.parent
 
-        print("all steps: ", self.steps_left)
         return self.steps_left.pop(0)
 
     def output(self):

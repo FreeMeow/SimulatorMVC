@@ -153,7 +153,7 @@ class World_generator():
         wy = y + (random.randrange(3, height-3) if horizontal else 0)
 
         # opening = random.randint(2, int(width/2 + .5)) if horizontal else random.randint(2, int(height/2 + .5))
-        opening = random.randint(2, 3)
+        opening = 2
         # where will the passage through the wall exist?
         start_of_wall = random.randint(0, 1)
         if horizontal:

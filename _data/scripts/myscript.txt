@@ -4,6 +4,22 @@ loadworld -f ./_data/worlds/tiny_02.world
 runalgo -a k_step_v2 -a:k 3 -t 1500
 loadworld -f ./_data/worlds/even_example_v-15.world
 runalgo -a all_in_cluster -a:maxd 120 -a:minp 2 -t 1800
+workondataset -d k_step_variations
+populatedataset -name random_worlds -num 2
 infoscenerio
 showscenerio
 exit
+
+
+
+example of dataset creation:
+
+workondataset <datasetname>
+copy algorithms
+-a k_step_v2 -a:k 1 -t 1500
+-a k_step_v2 -a:k 2 -t 1500
+-a k_step_v2 -a:k 3 -t 1500
+-a all_in_cluster -a:maxd 120 -a:minp 2 -t 1500
+-a greedy_priority -t 1500loa
+-a gravitational_search -t 1500
+populatedataset -name <runName> -num <numberofworlds> <world parameters>

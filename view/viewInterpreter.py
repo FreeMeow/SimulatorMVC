@@ -28,7 +28,9 @@ class ViewInterpreter:
             'changeconst': self.change_constant,
             'generateworld': self.generate_world,
             'statsscript': self.stats_script,
-            'statscsv': self.stats_csv
+            'statscsv': self.stats_csv,
+            'workondataset': self.work_on_dataset,
+            'populatedataset': self.populate_dataset
         }
         if script_file:
             self.load_scripts_from_file(script_file)
@@ -292,3 +294,10 @@ class ViewInterpreter:
                     row.insert(0, (numpy.average(row[len(row)-size:])))
                 row.insert(0, alg_names[i])
                 writer.writerow(row)
+
+    def work_on_dataset(self, args):
+        name = args['d']['default']
+        self.controller.work_on_dataset(name)
+
+    def populate_dataset(self, args):
+        self.controller.populate_dataset(args)

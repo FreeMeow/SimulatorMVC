@@ -38,3 +38,11 @@ class Controller:
     def set_const(self, const_name, new_value):
         self.check_for_model()
         return self.model.set_const(const_name, new_value)
+
+    def work_on_dataset(self, name):
+        self.check_for_model()
+        return self.model.work_on_dataset(name)
+    
+    def populate_dataset(self, args):
+        self.check_for_model()
+        return self.model.populate_dataset(args)
