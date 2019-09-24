@@ -27,10 +27,12 @@ class ViewInterpreter:
             'infoscenerio': self.print_scenerio_info,
             'changeconst': self.change_constant,
             'generateworld': self.generate_world,
-            'statsscript': self.stats_script,
-            'statscsv': self.stats_csv,
+            # 'statsscript': self.stats_script,
+            # 'statscsv': self.stats_csv,
             'workondataset': self.work_on_dataset,
-            'populatedataset': self.populate_dataset
+            'populatedataset': self.populate_dataset,
+            'dumpdataset': self.dump_dataset,
+            'deletedataset': self.delete_dataset
         }
         if script_file:
             self.load_scripts_from_file(script_file)
@@ -301,3 +303,20 @@ class ViewInterpreter:
 
     def populate_dataset(self, args):
         self.controller.populate_dataset(args)
+
+    def dump_dataset(self, args):
+        if input('Are you sure that you want to dump this dataset\'s .world files? (Y/N): ').lower() == 'y':
+            successful, err_msg = self.controller.dump_dataset()
+            if successful:
+                print('.world files successfully dumped')
+            else:
+                print(err_msg)
+
+    def delete_dataset(self, args):
+        name = args['d']['default']
+        if input(f"Are you sure that you want to delete \'{name}\'? (this action can not be undone) (Y/N): ").lower() == 'y':
+            successful, err_msg = self.controller.delete_dataset(name)
+            if successful:
+                print(f"\'{name}\' deleted successfully.'")
+            else:
+                print(err_msg)

@@ -4,6 +4,7 @@ import numpy as np
 import json
 
 TRIES = 1000
+CLUSTER_TRIES = 100
 
 
 class World_generator():
@@ -26,7 +27,7 @@ class World_generator():
             return [False, "minimum starvation cannot be higher than maximum"]
         width = 600
         height = 600
-        self.tile_size = 20
+        self.tile_size = 10
         # TODO: implement random probability based on uniform distribution + probability factor
         # max_pg = float(args['max_pg']['default'])
         probability = 1/vertex_count
@@ -69,9 +70,31 @@ class World_generator():
         # generate vertexes
         for i in range(0, vertex_count - cluster_count):
             tries = 0
+            placed = False
             # use clustering factor to determine if vertex will belong to a cluster
-            if random.uniform(0, 1) > clustering_factor:
-                # position vertex randomly
+            if random.uniform(0, 1) <= clustering_factor:
+                # position vertex in one of the clusteres randomly
+                cluster_tries = 0
+                chosen_cluster = random.choice(clusters)
+                while True:
+                    # using gaussian curve to determine position inside cluster
+                    # clustering factor and number of failed placement attempts affects standard deviation of curve
+                    vx = int(chosen_cluster[0] + np.random.normal(loc=0.0, scale=1 + 10*(1-clustering_factor) + 10*(tries/(TRIES))))
+                    vy = int(chosen_cluster[1] + np.random.normal(loc=0.0, scale=1 + 10*(1-clustering_factor) + 10*(tries/(TRIES))))
+                    if self.check_area(world_matrix, vx, vy, 1, chosen_cluster[2]):
+                        placed = True
+                        break
+                    tries += 1
+                    if tries > TRIES:
+                        cluster_tries += 1
+                        tries = 0
+                        if cluster_tries > CLUSTER_TRIES:
+                            break
+                        chosen_cluster = random.choice(clusters)
+
+            if not placed:
+                 # position vertex randomly
+                tries = 0
                 room = random.choice(rooms)
                 while True:
                     vx = random.randrange(room['x']+1, room['x']+room['width']-1)
@@ -82,22 +105,8 @@ class World_generator():
                     if tries > TRIES:
                         tries = 0
                         room = random.choice(rooms)
-            else:
-                # position vertex in one of the clusteres randomly
-                chosen_cluster = random.choice(clusters)
-                while True:
-                    # using gaussian curve to determine position inside cluster
-                    # clustering factor and number of failed placement attempts affects standard deviation of curve
-                    vx = int(chosen_cluster[0] + np.random.normal(loc=0.0, scale=1 + 5*(1-clustering_factor) + 5*(tries/(TRIES))))
-                    vy = int(chosen_cluster[1] + np.random.normal(loc=0.0, scale=1 + 5*(1-clustering_factor) + 5*(tries/(TRIES))))
-                    if self.check_area(world_matrix, vx, vy, 1, chosen_cluster[2]):
-                        break
-                    tries += 1
-                    if tries > TRIES:
-                        tries = 0
-                        chosen_cluster = random.choice(clusters)
 
-            self.visit_points.append(self.create_visit_point(vx, vy, min_st, max_st, probability))
+            self.visit_points.append(self.create_visit_point(vx, vy, min_st, max_st, round(probability, 2)))
             world_matrix[vy][vx] = 2
 
         # check parameters at hte beginning

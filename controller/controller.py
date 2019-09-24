@@ -42,7 +42,15 @@ class Controller:
     def work_on_dataset(self, name):
         self.check_for_model()
         return self.model.work_on_dataset(name)
-    
+
     def populate_dataset(self, args):
         self.check_for_model()
         return self.model.populate_dataset(args)
+
+    def dump_dataset(self):
+        self.check_for_model()
+        return self.model.dump_dataset()
+
+    def delete_dataset(self, name):
+        self.check_for_model()
+        return self.model.delete_dataset(name)

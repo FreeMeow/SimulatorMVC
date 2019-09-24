@@ -9,6 +9,7 @@ import re
 from model.world_generator import World_generator
 from model.utils.constants import CONSTANTS
 import random
+import shutil
 
 
 class Model:
@@ -117,6 +118,7 @@ class Model:
         dataset = [[0 for _ in range(len(worlds))] for _ in range(len(algs))]
         total_runs = len(worlds)*len(algs)
         count_runs = 0
+        runtime_arr = [0]*len(algs)
         for j, world in enumerate(worlds):
             if world[-1] == '\n':
                 world = world[:-1]
@@ -125,29 +127,33 @@ class Model:
             for i, alg in enumerate(algs):
                 if alg[-1] == '\n':
                     algs[i] = alg[:-1]
-                _, args2 = self.parse_input("rulago "+algs[i])
+                _, args2 = self.parse_input("runalgo "+algs[i])
                 count_runs += 1
                 print("completed: ", count_runs, '/', total_runs)
                 algo = args2['a']['default']
                 algo_args = args2['a']
-                tpd = int(args2['t']['default'])
+                tpd = int(args['t']['default'])
                 print("running algorithm: ", algo)
                 self.run_algorithm_on_world(algo, algo_args, tpd)
-                dataset[i][j] = self.get_scenerio_info()['total_price']
+                stat_obj = self.get_scenerio_info()
+                dataset[i][j] = stat_obj['total_price']
+                runtime_arr[i] += int(stat_obj['runtime'])
         with open(os.path.join(self.dataset, "statistics.csv"), "a", newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             world_names = []
-            world_names.append(args['name']['default'] if 'name' in args else 'dataset')
+            world_names.append((args['name']['default'] if 'name' in args else 'dataset')+':'+args['t']['default'])
             alg_names = []
             for alg in algs:
                 alg_names.append(alg[3:])
             for world in worlds:
                 world_names.append(world)
+            world_names.insert(1, "Average runtime")
             world_names.insert(1, "Sum")
             world_names.insert(1, "Average")
             writer.writerow(world_names)
             for i, row in enumerate(dataset):
                 size = len(row)
+                row.insert(0, runtime_arr[i]/len(worlds))
                 row.insert(0, sum(row[len(row)-size:]))
                 row.insert(0, (numpy.average(row[len(row)-size:])))
                 row.insert(0, alg_names[i])
@@ -193,3 +199,26 @@ class Model:
                         args[arg]['default'] = True
                         i += 1
         return command, args
+
+    def dump_dataset(self):
+        if not os.path.exists(self.dataset):
+            return False, 'no dataset is loaded'
+        path = os.path.join(self.dataset, 'generated_worlds')
+        for file_name in os.listdir(path):
+            if file_name[-6:] == '.world':
+                os.unlink(os.path.join(path, file_name))
+        return True, ''
+
+    def delete_dataset(self, name):
+        path = os.path.join('./_data/datasets/', name)
+        if not os.path.exists(path):
+            return False, f"Failed to delete dataset, \'{name}\' does not exist."
+        try:
+            shutil.rmtree(path)
+        except Exception as e:
+            return False, e
+        if os.path.exists(path):
+            return False, f"{name} could not be deleted, make sure no files or folders of the dataset are open"
+        if self.dataset == path:
+            self.dataset == None
+        return True, ''

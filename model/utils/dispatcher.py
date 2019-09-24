@@ -133,6 +133,6 @@ def caclulate_statistic(world, vertexes, alg_name, tpd, milliseconds):
         'alg_name': alg_name,
         'tpd': tpd,
         'num_of_vertexes': len(vertexes),
-        'runtime': str(milliseconds) + ' ms'
+        'runtime': str(milliseconds)
     }
     return stat
