@@ -161,12 +161,17 @@ class Model:
             writer.writerows(['', ''])
 
     def parse_input(self, user_input):
+        print(user_input)
         user_input = re.sub(" +", " ", user_input)
         strs = user_input.split(" ")
         args_strs = strs[1:]
         command = strs[0]
         args = {}
         i = 0
+        # remove falsy values
+        for val in args_strs:
+            if val == '':
+                args_strs.remove(val)
         while i < len(args_strs):
             arg = args_strs[i]
             next_arg = ""
