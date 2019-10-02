@@ -148,12 +148,16 @@ class Model:
             for world in worlds:
                 world_names.append(world)
             world_names.insert(1, "Average runtime")
+            world_names.insert(1, "Mean")
             world_names.insert(1, "Sum")
             world_names.insert(1, "Average")
             writer.writerow(world_names)
             for i, row in enumerate(dataset):
                 size = len(row)
-                row.insert(0, runtime_arr[i]/len(worlds))
+                ordered_row = sorted(row)
+                mean = ordered_row[int(size/2)] if size % 2 == 1 else (ordered_row[int(size/2)] + ordered_row[int(size/2)-1])/2
+                row.insert(0, int(runtime_arr[i]/len(worlds)))
+                row.insert(0, mean)
                 row.insert(0, sum(row[len(row)-size:]))
                 row.insert(0, (numpy.average(row[len(row)-size:])))
                 row.insert(0, alg_names[i])
