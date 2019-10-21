@@ -1,0 +1,145 @@
+workondataset -d current_data
+populatedataset -name vn5wn0cf0cn0st300500p1 -num 30 -t 5000 -vn 5 -wn 0 -st_min 300 -st_max 500 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn0cf0cn0st300500p5 -num 30 -t 5000 -vn 5 -wn 0 -st_min 300 -st_max 500 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn0cf0cn0st100600p1 -num 30 -t 5000 -vn 5 -wn 0 -st_min 100 -st_max 600 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn0cf0cn0st100600p5 -num 30 -t 5000 -vn 5 -wn 0 -st_min 100 -st_max 600 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn0cf8cn2st300500p1 -num 30 -t 5000 -vn 5 -wn 0 -cf 0.8 -cn 2 -st_min 300 -st_max 500 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn0cf8cn2st300500p5 -num 30 -t 5000 -vn 5 -wn 0 -cf 0.8 -cn 2 -st_min 300 -st_max 500 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn0cf8cn2st100600p1 -num 30 -t 5000 -vn 5 -wn 0 -cf 0.8 -cn 2 -st_min 100 -st_max 600 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn0cf8cn2st100600p5 -num 30 -t 5000 -vn 5 -wn 0 -cf 0.8 -cn 2 -st_min 100 -st_max 600 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn4cf0cn0st300500p1 -num 30 -t 5000 -vn 5 -wn 4 -st_min 300 -st_max 500 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn4cf0cn0st300500p5 -num 30 -t 5000 -vn 5 -wn 4 -st_min 300 -st_max 500 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn4cf0cn0st100600p1 -num 30 -t 5000 -vn 5 -wn 4 -st_min 100 -st_max 600 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn4cf0cn0st100600p5 -num 30 -t 5000 -vn 5 -wn 4 -st_min 100 -st_max 600 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn4cf8cn2st300500p1 -num 30 -t 5000 -vn 5 -wn 4 -cf 0.8 -cn 2 -st_min 300 -st_max 500 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn4cf8cn2st300500p5 -num 30 -t 5000 -vn 5 -wn 4 -cf 0.8 -cn 2 -st_min 300 -st_max 500 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn4cf8cn2st100600p1 -num 30 -t 5000 -vn 5 -wn 4 -cf 0.8 -cn 2 -st_min 100 -st_max 600 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn4cf8cn2st100600p5 -num 30 -t 5000 -vn 5 -wn 4 -cf 0.8 -cn 2 -st_min 100 -st_max 600 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn10cf0cn0st300500p1 -num 30 -t 5000 -vn 5 -wn 10 -st_min 300 -st_max 500 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn10cf0cn0st300500p5 -num 30 -t 5000 -vn 5 -wn 10 -st_min 300 -st_max 500 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn10cf0cn0st100600p1 -num 30 -t 5000 -vn 5 -wn 10 -st_min 100 -st_max 600 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn10cf0cn0st100600p5 -num 30 -t 5000 -vn 5 -wn 10 -st_min 100 -st_max 600 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn10cf8cn2st300500p1 -num 30 -t 5000 -vn 5 -wn 10 -cf 0.8 -cn 2 -st_min 300 -st_max 500 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn10cf8cn2st300500p5 -num 30 -t 5000 -vn 5 -wn 10 -cf 0.8 -cn 2 -st_min 300 -st_max 500 -p_min 0.25 -p_max 0.75
+populatedataset -name vn5wn10cf8cn2st100600p1 -num 30 -t 5000 -vn 5 -wn 10 -cf 0.8 -cn 2 -st_min 100 -st_max 600 -p_min 0.45 -p_max 0.55
+populatedataset -name vn5wn10cf8cn2st100600p5 -num 30 -t 5000 -vn 5 -wn 10 -cf 0.8 -cn 2 -st_min 100 -st_max 600 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf0cn0st500700p1 -num 30 -t 5000 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf0cn0st500700p5 -num 30 -t 5000 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf0cn0st300800p1 -num 30 -t 5000 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf0cn0st300800p5 -num 30 -t 5000 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf5cn3st500700p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf5cn3st500700p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf5cn3st300800p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf5cn3st300800p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf5cn5st500700p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf5cn5st500700p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf5cn5st300800p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf5cn5st300800p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf8cn3st500700p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf8cn3st500700p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf8cn3st300800p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf8cn3st300800p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf8cn5st500700p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf8cn5st500700p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 0 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn0cf8cn5st300800p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn0cf8cn5st300800p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 0 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf0cn0st500700p1 -num 30 -t 5000 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf0cn0st500700p5 -num 30 -t 5000 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf0cn0st300800p1 -num 30 -t 5000 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf0cn0st300800p5 -num 30 -t 5000 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf5cn3st500700p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf5cn3st500700p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf5cn3st300800p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf5cn3st300800p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf5cn5st500700p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf5cn5st500700p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf5cn5st300800p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf5cn5st300800p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf8cn3st500700p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf8cn3st500700p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf8cn3st300800p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf8cn3st300800p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf8cn5st500700p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf8cn5st500700p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 4 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn4cf8cn5st300800p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn4cf8cn5st300800p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 4 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf0cn0st500700p1 -num 30 -t 5000 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf0cn0st500700p5 -num 30 -t 5000 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf0cn0st300800p1 -num 30 -t 5000 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf0cn0st300800p5 -num 30 -t 5000 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf5cn3st500700p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf5cn3st500700p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf5cn3st300800p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf5cn3st300800p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf5cn5st500700p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf5cn5st500700p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf5cn5st300800p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf5cn5st300800p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf8cn3st500700p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf8cn3st500700p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf8cn3st300800p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf8cn3st300800p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf8cn5st500700p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf8cn5st500700p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 10 -st_min 500 -st_max 700 -p_min 0.25 -p_max 0.75
+populatedataset -name vn10wn10cf8cn5st300800p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.45 -p_max 0.55
+populatedataset -name vn10wn10cf8cn5st300800p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 10 -wn 10 -st_min 300 -st_max 800 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf0cn0st700900p1 -num 30 -t 5000 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf0cn0st700900p5 -num 30 -t 5000 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf0cn0st5001000p1 -num 30 -t 5000 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf0cn0st5001000p5 -num 30 -t 5000 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf5cn3st700900p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf5cn3st700900p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf5cn3st5001000p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf5cn3st5001000p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf5cn5st700900p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf5cn5st700900p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf5cn5st5001000p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf5cn5st5001000p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf8cn3st700900p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf8cn3st700900p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf8cn3st5001000p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf8cn3st5001000p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf8cn5st700900p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf8cn5st700900p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 0 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn0cf8cn5st5001000p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn0cf8cn5st5001000p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 0 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf0cn0st700900p1 -num 30 -t 5000 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf0cn0st700900p5 -num 30 -t 5000 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf0cn0st5001000p1 -num 30 -t 5000 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf0cn0st5001000p5 -num 30 -t 5000 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf5cn3st700900p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf5cn3st700900p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf5cn3st5001000p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf5cn3st5001000p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf5cn5st700900p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf5cn5st700900p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf5cn5st5001000p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf5cn5st5001000p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf8cn3st700900p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf8cn3st700900p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf8cn3st5001000p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf8cn3st5001000p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf8cn5st700900p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf8cn5st700900p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 4 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn4cf8cn5st5001000p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn4cf8cn5st5001000p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 4 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf0cn0st700900p1 -num 30 -t 5000 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf0cn0st700900p5 -num 30 -t 5000 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf0cn0st5001000p1 -num 30 -t 5000 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf0cn0st5001000p5 -num 30 -t 5000 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf5cn3st700900p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf5cn3st700900p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf5cn3st5001000p1 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf5cn3st5001000p5 -num 30 -t 5000 -cf 0.5 -cn 3 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf5cn5st700900p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf5cn5st700900p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf5cn5st5001000p1 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf5cn5st5001000p5 -num 30 -t 5000 -cf 0.5 -cn 5 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf8cn3st700900p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf8cn3st700900p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf8cn3st5001000p1 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf8cn3st5001000p5 -num 30 -t 5000 -cf 0.8 -cn 3 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf8cn5st700900p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf8cn5st700900p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 10 -st_min 700 -st_max 900 -p_min 0.25 -p_max 0.75
+populatedataset -name vn20wn10cf8cn5st5001000p1 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.45 -p_max 0.55
+populatedataset -name vn20wn10cf8cn5st5001000p5 -num 30 -t 5000 -cf 0.8 -cn 5 -vn 20 -wn 10 -st_min 500 -st_max 1000 -p_min 0.25 -p_max 0.75

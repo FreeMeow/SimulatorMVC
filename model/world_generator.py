@@ -21,16 +21,19 @@ class World_generator():
         clustering_factor = float(args['cf']['default']) if 'cf' in args else 0
         if not 0 <= clustering_factor <= 1:
             return [False, "clustering factor must be between 0 and 1"]
-        min_st = int(args['st_min'][0]) if 'st_range' in args else 100
-        max_st = int(args['st_max'][1]) if 'st_range' in args else 600
+        min_st = int(args['st_min']['default']) if 'st_min' in args else 100
+        max_st = int(args['st_max']['default']) if 'st_max' in args else 600
         if min_st > max_st:
             return [False, "minimum starvation cannot be higher than maximum"]
+        p_min = float(args['p_min']['default']) if 'p_min' in args else 0.05
+        p_max = float(args['p_max']['default']) if 'p_max' in args else 0.3
+        if p_min > p_max:
+            return [False, "minimum probability cannot be higher than maximum"]
         width = 600
         height = 600
         self.tile_size = 10
         # TODO: implement random probability based on uniform distribution + probability factor
         # max_pg = float(args['max_pg']['default'])
-        probability = 1/vertex_count
         row_length = int(width/self.tile_size)+1
         column_length = int(height/self.tile_size)+1
         self.visit_points = []
@@ -58,7 +61,7 @@ class World_generator():
                 cy = random.randrange(room['y']+1, room['y']+room['height']-1)
                 if self.check_area(world_matrix, cx, cy, 1):
                     clusters.append([cx, cy, room])
-                    self.visit_points.append(self.create_visit_point(cx, cy, min_st, max_st, probability))
+                    self.visit_points.append(self.create_visit_point(cx, cy, min_st, max_st, self.random_p(p_min, p_max)))
                     world_matrix[cy][cx] = 2
                     break
                 tries += 1
@@ -106,7 +109,7 @@ class World_generator():
                         tries = 0
                         room = random.choice(rooms)
 
-            self.visit_points.append(self.create_visit_point(vx, vy, min_st, max_st, round(probability, 2)))
+            self.visit_points.append(self.create_visit_point(vx, vy, min_st, max_st, self.random_p(p_min, p_max)))
             world_matrix[vy][vx] = 2
 
         # check parameters at hte beginning
@@ -148,7 +151,7 @@ class World_generator():
             return self.HORIZONTAL if random.randint(0, 1) == 0 else self.VERTICAL
 
     # --------------------------------------------------------------------
-    # 4. The recursive-division algorithm itself
+    # 4. The recursive-division wall generation algorithm
     # --------------------------------------------------------------------
 
     def divide(self, world_matrix, x, y, width, height, orientation, wall_num):
@@ -228,3 +231,10 @@ class World_generator():
             "starvation": random.randrange(min_st, max_st, 10),
             "probability": probability
         }
+
+    def random_p(self, min_p, max_p):
+        if min_p == max_p:
+            return min_p
+        min_p = 0.01 if min_p < 0.01 else min_p
+        max_p = 0.05 if max_p < 0.05 else max_p
+        return random.randrange(int(min_p*100), int(max_p*100), 2)/100

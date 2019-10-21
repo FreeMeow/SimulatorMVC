@@ -1,8 +1,9 @@
 
-generateworld -path ./_data/generated_worlds -name generated_1 -vn 20 -wn 10 -cn 7 -cf 0.8 -max_st 500 -min_st 200
+generateworld -path ./_data/generated_worlds -name generated_1 -vn 20 -wn 10 -cn 7 -cf 0.8 -st_max 500 -st_min 200 -p_min 0.05 -p_max 0.3
 loadworld -f ./_data/worlds/example_v-15.world
 runalgo -a k_step_v2 -a:k 3 -t 1500
-loadworld -f ./_data/worlds/even_example_v-15.world
+runalgo -a onion_search_heuristic -a:cnum 4 -t 1500
+loadworld -f ./_data/generated_worlds/even_example_v-15.world
 runalgo -a all_in_cluster -a:maxd 120 -a:minp 2 -t 1800
 workondataset -d k_step_variations
 populatedataset -name random_worlds -num 2

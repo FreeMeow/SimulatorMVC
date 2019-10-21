@@ -10,6 +10,8 @@ from model.world_generator import World_generator
 from model.utils.constants import CONSTANTS
 import random
 import shutil
+from model.utils.world_utils import calc_entropy
+from model.utils.world_utils import standard_deviation
 
 
 class Model:
@@ -119,11 +121,19 @@ class Model:
         total_runs = len(worlds)*len(algs)
         count_runs = 0
         runtime_arr = [0]*len(algs)
+        entropies = ['Entropy', '', '', '']
+        p_sd = ['p_sd', '', '', '']
+        st_sd = ['st_sd', '', '', '']
+        # read data worlds for statistics
         for j, world in enumerate(worlds):
             if world[-1] == '\n':
                 world = world[:-1]
             print("loading world: ", world)
             self.load_world_from_file(os.path.join(self.dataset, 'generated_worlds', world+'.world'))
+            p_deviation, st_deviation = standard_deviation(self.current_world)
+            p_sd.append(p_deviation)
+            st_sd.append(st_deviation)
+            entropies.append(calc_entropy(self.current_world))
             for i, alg in enumerate(algs):
                 if alg[-1] == '\n':
                     algs[i] = alg[:-1]
@@ -148,17 +158,18 @@ class Model:
             for world in worlds:
                 world_names.append(world)
             world_names.insert(1, "Average runtime")
-            world_names.insert(1, "Mean")
-            world_names.insert(1, "Sum")
+            world_names.insert(1, "Median")
             world_names.insert(1, "Average")
             writer.writerow(world_names)
+            writer.writerow(entropies)
+            writer.writerow(p_sd)
+            writer.writerow(st_sd)
             for i, row in enumerate(dataset):
                 size = len(row)
                 ordered_row = sorted(row)
                 mean = ordered_row[int(size/2)] if size % 2 == 1 else (ordered_row[int(size/2)] + ordered_row[int(size/2)-1])/2
                 row.insert(0, int(runtime_arr[i]/len(worlds)))
                 row.insert(0, mean)
-                row.insert(0, sum(row[len(row)-size:]))
                 row.insert(0, (numpy.average(row[len(row)-size:])))
                 row.insert(0, alg_names[i])
                 writer.writerow(row)
