@@ -1,4 +1,0 @@
--a k_step_v2 -a:k 4 -t 1500
-	overall time: 1623.9380708625017
--a gravitational_search -t 1500
-	overall time: 4090.832603792895

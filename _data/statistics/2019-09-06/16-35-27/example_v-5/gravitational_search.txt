@@ -1,9 +1,0 @@
- -t 3000
-###################################
-# total_price: 5839.2687228411305 #
-# alg_name: gravitational_search  #
-# tpd: 3000                       #
-# num_of_vertexes: 5              #
-# runtime: 641 ms                 #
-###################################
-

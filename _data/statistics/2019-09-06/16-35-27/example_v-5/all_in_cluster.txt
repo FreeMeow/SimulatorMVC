@@ -1,9 +1,0 @@
- -a:maxd 120 -a:minp 2 -t 3000
-##################################
-# total_price: 6871.001391864206 #
-# alg_name: all_in_cluster       #
-# tpd: 3000                      #
-# num_of_vertexes: 5             #
-# runtime: 218 ms                #
-##################################
-

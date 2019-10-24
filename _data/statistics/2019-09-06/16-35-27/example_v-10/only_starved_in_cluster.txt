@@ -1,9 +1,0 @@
- -a:maxd 120 -a:minp 2 -t 3000
-#####################################
-# total_price: 5472.763955457637    #
-# alg_name: only_starved_in_cluster #
-# tpd: 3000                         #
-# num_of_vertexes: 10               #
-# runtime: 367 ms                   #
-#####################################
-
